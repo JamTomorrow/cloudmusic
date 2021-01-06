@@ -7,6 +7,13 @@ import './assets/css/base.scss'
 
 // 图片懒加载
 import VueLazyload from 'vue-lazyload'
+
+import Loading from './plugin/loading/index'
+
+Vue.use(Loading, {
+  title: 'Loading...'
+})
+
 Vue.use(VueLazyload, {
   // 可以通过配置loading来设置图片还未加载好之前的占位图片
   loading: require('./assets/images/loading.png')
