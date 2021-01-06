@@ -1,7 +1,14 @@
 <template>
     <div class="container" v-show="isShow">
-      <div class="loading"></div>
-      <p class="title">{{title}}</p>
+      <div class="icon">
+        <span class="playing">
+          <i></i>
+          <i></i>
+          <i></i>
+          <i></i>
+        </span>
+      </div>
+      <p class="title">{{ title }}</p>
     </div>
 </template>
 
@@ -10,7 +17,7 @@ export default {
   name: 'Loading',
   data: function () {
     return {
-      title: '正在加载...',
+      title: 'Loading...',
       isShow: false
     }
   }
@@ -18,36 +25,60 @@ export default {
 </script>
 
 <style scoped lang="scss">
-  .container{
-    width: 200px;
-    height: 200px;
-    border-radius: 20px;
-    background: rgba(0,0,0,0.5);
+  @import "../../assets/css/mixin";
+  .container {
     position: absolute;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    .loading{
-      width: 100px;
-      height: 100px;
-      border-radius: 50%;
-      border: 5px solid #fff;
-      margin: 20px auto;
-      border-right-color: #409eff;
-      animation: loading 2s linear infinite;
+    .icon {
+      width: 60px;
+      height: 60px;
+      margin: 0 auto;
+      .playing {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+
+        i {
+          width: 8px;
+          height: 60px;
+          @include bg_color();
+          transform-origin: center bottom;
+          animation: playing 0.6s linear -0.2s infinite alternate-reverse;
+
+          &:nth-of-type(1) {
+            animation-delay: 0s;
+          }
+
+          &:nth-of-type(2) {
+            animation-delay: -0.2s;
+          }
+
+          &:nth-of-type(3) {
+            animation-delay: -0.4s;
+          }
+
+          &:nth-of-type(4) {
+            animation-delay: -0.6s;
+          }
+        }
+      }
     }
     .title{
+      @include font_size($font_medium_s);
       text-align: center;
-      font-size: 16px;
-      color: #fff;
+      color: #666;
     }
-  }
-  @keyframes loading {
-    from{
-      transform: rotate(0deg);
-    }
-    to{
-      transform: rotate(360deg);
+
+    @keyframes playing {
+      from {
+        transform: scaleY(1);
+      }
+
+      to {
+        transform: scaleY(0.2);
+      }
     }
   }
 </style>
