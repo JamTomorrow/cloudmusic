@@ -1,7 +1,7 @@
 <template>
   <Header class="header">
     <div slot="left" class="header-left"></div>
-    <p slot="center" class="header-title">网易云音乐</p>
+    <p slot="center" class="header-title">姜丝云音乐</p>
     <div slot="right" class="header-right" @click.stop="accountClick"></div>
   </Header>
 </template>

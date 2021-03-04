@@ -21,7 +21,8 @@ export default {
   name: 'Header',
   data () {
     return {
-      themes: ['theme', 'theme1', 'theme2'],
+      // themes: ['theme', 'theme1', 'theme2'],
+      themes: ['theme1', 'theme2'],
       index: 0
     }
   },

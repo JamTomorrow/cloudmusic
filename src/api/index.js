@@ -24,8 +24,8 @@ export const getLetterArtists = letter => {
     const letterArtists = []
     Network.all([
       // Network.get(`artist/list?offset=0&limit=5&cat=5001&initial=${letter}`)
-      Network.get(`artist/list?offset=0&limit=5&cat=1001&initial=${letter}`),
-      Network.get(`artist/list?offset=0&limit=5&cat=1002&initial=${letter}`)
+      Network.get(`artist/list?offset=0&limit=5&cat=1001&initial=${letter}`)
+      // Network.get(`artist/list?offset=0&limit=5&cat=1002&initial=${letter}`),
       // Network.get(`artist/list?offset=0&limit=5&cat=1003&initial=${letter}`),
       // Network.get(`artist/list?offset=0&limit=5&cat=2001&initial=${letter}`),
       // Network.get(`artist/list?offset=0&limit=5&cat=2002&initial=${letter}`),
@@ -66,23 +66,13 @@ export const getAllArtists = letter => {
 export const getTopListDetail = () => {
   return new Promise(function (resolve, reject) {
     const category = {
-      officialList: [
-        { name: '云音乐新歌榜', id: 0 },
-        { name: '云音乐热歌榜', id: 1 },
-        { name: '网易原创歌曲榜', id: 2 },
-        { name: '云音乐飙升榜', id: 3 }
-      ],
       recList: [
-        { name: '云音乐ACG音乐榜', id: 22 },
         { name: '云音乐说唱榜', id: 23 },
-        { name: '云音乐古典音乐榜', id: 24 },
         { name: '云音乐电音榜', id: 25 },
-        { name: '抖音排行榜', id: 26 },
         { name: '云音乐欧美新歌榜', id: 32 }
       ],
       globalList: [
         { name: 'UK排行榜周榜', id: 5 },
-        { name: '美国Billboard周榜', id: 6 },
         { name: 'iTunes榜', id: 8 },
         { name: 'Beatport全球电子舞曲榜', id: 21 }
       ],
@@ -92,7 +82,7 @@ export const getTopListDetail = () => {
         { name: '云音乐韩语榜', id: 28 },
         { name: '云音乐欧美热歌榜', id: 31 }
       ],
-      titles: { officialList: '官方榜', recList: '推荐榜', globalList: '全球榜', otherList: '更多榜单' }
+      titles: { recList: '推荐榜', globalList: '全球榜', otherList: '更多榜单' }
     }
     Network.get('toplist/detail')
       .then(function (data) {

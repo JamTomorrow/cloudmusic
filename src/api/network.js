@@ -3,6 +3,7 @@ import Vue from 'vue'
 
 // 进行一些全局配置
 // axios.defaults.baseURL = 'http://127.0.0.1:3000'
+// axios.defaults.baseURL = 'http://musicapi.leanapp.cn/'
 axios.defaults.baseURL = 'http://music.kele8.cn'
 // axios.defaults.timeout = 5000
 
